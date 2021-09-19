@@ -1,6 +1,5 @@
-package com.hsbc.fxpteventstore;
+package cloud.stream.eventstore;
 
-import com.hsbc.fxpteventstore.domain.Message;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Materialized;
@@ -14,8 +13,11 @@ import java.util.function.Consumer;
 public class FxptEventStoreApplication {
 
     @Bean
-    public Consumer<KStream<String, Message>> process() {
-        return input -> input.map((key, value) -> new KeyValue<>(value.getId(), value))
+    public Consumer<KStream<String, String>> process() {
+        return input -> input.map((key, value) -> {
+            System.out.println(value);
+            return new KeyValue<>("1", value);
+        })
                 .toTable(Materialized.as("event-store"));
     }
 

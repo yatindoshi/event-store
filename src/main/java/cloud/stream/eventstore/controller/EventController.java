@@ -1,6 +1,6 @@
-package com.hsbc.fxpteventstore.controller;
+package cloud.stream.eventstore.controller;
 
-import com.hsbc.fxpteventstore.service.EventService;
+import cloud.stream.eventstore.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

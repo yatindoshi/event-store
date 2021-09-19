@@ -1,4 +1,6 @@
-package com.hsbc.fxpteventstore.domain;
+package cloud.stream.eventstore.domain;
+
+import org.springframework.lang.Nullable;
 
 import java.time.LocalDateTime;
 
@@ -7,10 +9,9 @@ public class Message {
     String text;
     LocalDateTime time;
 
-    public Message(String id, String text, LocalDateTime time) {
+    public Message(String id, String text) {
         this.id = id;
         this.text = text;
-        this.time = time;
     }
 
     public String getId() {
